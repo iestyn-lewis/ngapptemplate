@@ -1,0 +1,21 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th ng-repeat="field in view.fields">{{objectField(field.name).display}}</th>
+            <th ng-if="view.allowDelete">
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="thing in things">
+            <td ng-repeat="field in view.fields">
+                {{thing[field.name]}}
+            </td>
+            <td ng-if="view.allowDelete">
+                <a href ng-click="removeThing(thing.$id)"><i class="fa fa-times-circle"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

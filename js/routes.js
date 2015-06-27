@@ -5,11 +5,17 @@ angular
         .when('/', {
             templateUrl: 'templates/pages/hello.html'
         })
-        .when('/items', {
-            templateUrl: 'templates/pages/items.html'
+        .when('/recipes', {
+            templateUrl: 'templates/pages/recipes.html'
+        })
+        .when('/recipe/:id', {
+            templateUrl: 'templates/pages/recipe.html'
+        })
+        .when('/config', {
+            templateUrl: 'templates/pages/config.html'
         })
         .otherwise({
-            redirectTo: '/'
+            redirectTo: '/recipes'
         })
         ;
    });

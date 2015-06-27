@@ -1,6 +1,7 @@
 angular
     .module('app')
-    .factory('FirebaseService', ['$firebaseArray', '$firebaseObject', 'FIREBASE_URL', function FirebaseServiceFactory($firebaseArray, $firebaseObject, FIREBASE_URL) {
+    .factory('FirebaseService', ['$firebaseArray', '$firebaseObject', 'FIREBASE_URL', 'APP_NAME', 
+      function FirebaseServiceFactory($firebaseArray, $firebaseObject, FIREBASE_URL, APP_NAME) {
         return {
           asArray: function(path) {
             // download the data into a local array
@@ -12,7 +13,7 @@ angular
           },
           getRef: function(path) {
             // get firebase reference
-            return new Firebase(FIREBASE_URL + path);
+            return new Firebase(FIREBASE_URL + "/" + APP_NAME + "/" + path);
           }
         }
     }]);

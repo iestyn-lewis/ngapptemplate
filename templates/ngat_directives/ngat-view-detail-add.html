@@ -1,0 +1,18 @@
+<button ng-if="view.toggleButton" ng-hide="view.visible" ng-click="toggleView()" class="btn btn-primary">
+    <i class="fa fa-plus"></i> {{view.toggleButton.title}}
+</button>
+
+<div ng-show="view.visible" class="well">
+    <form ng-submit="addThing()">
+        <div class="form-group" ng-repeat="field in view.fields">
+            <label>{{objectField(field.name).display}}</label>
+            <input class="form-control" ng-model="newThing[field.name]">
+        </div>
+        <button class="btn btn-default" ng-if="view.cancelButton" ng-click="toggleView()">
+            <i class="fa fa-times-circle"></i> Cancel
+        </button>
+        <button type="submit" class="btn btn-success">
+            <i class="fa fa-check"></i> {{view.confirmButton.title}}
+        </button>
+    </form>
+</div>
