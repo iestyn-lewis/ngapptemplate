@@ -1,0 +1,19 @@
+<input ng-if="objectField(field.name).type=='string' || objectField(field.name).type=='number'" 
+       class="form-control" 
+       ng-model="thing[field.name]">
+
+<input ng-if="objectField(field.name).type=='image'" 
+       class="form-control" 
+       ng-model="thing[field.name]">
+
+<select ng-if="objectField(field.name).type == 'picklist'" 
+        class="form-control" 
+        ng-model="thing[field.name]"
+        ng-options="option.name as option.name for option in picklists[field.name]">
+</select>
+
+<textarea ng-if="objectField(field.name).type== 'note'"
+          class="form-control"
+          ng-model="thing[field.name]"
+          rows="4">
+</textarea>

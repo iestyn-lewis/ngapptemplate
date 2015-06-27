@@ -3,9 +3,10 @@
         <a ng-href="{{'#/' + view.thing + '/' + thing.$id}}">
             <div class="well">
                 <div ng-repeat="field in view.fields">
-                    <span ng-class="field.class">{{thing[field.name]}} 
-                         
-                    </span>
+                <span ng-if="objectField(field.name).type != 'image'" ng-class="field.class">
+                            <span class="angular-with-newlines">{{thing[field.name]}}</span>
+                        </span>
+                       <img ng-if="objectField(field.name).type == 'image'" ng-src="{{thing[field.name]}}" height=100>
                 </div>
             </a>
         </div>          

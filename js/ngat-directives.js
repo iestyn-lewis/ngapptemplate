@@ -9,4 +9,10 @@ angular
             }
         };
     })
+    .directive('ngatInput', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/ngat_directives/ngat-input.html'
+        };
+    })
 ;

@@ -12,7 +12,7 @@ angular
             fields: [
                 {name:'name', class:"h3"}, 
                 {name:'meal_type'},
-                {name:'picture', width:"100"}
+                {name:'picture', height:"100"}
             ],
             allowDelete: true
         },
@@ -23,10 +23,10 @@ angular
             fields: [
                 {name:'name', class: 'h1'}, 
                 {name:'meal_type', class: 'h4'}, 
+                {name:'picture', height:'200'}, 
                 {name:'serves', caption: true}, 
-                {name:'picture'}, 
                 {name:'ingredients', caption: true},
-                {name:'preparation'},
+                {name:'preparation', caption: true},
                 {name:'notes', caption: true}
             ],
             confirmButton: {title: "Save"},
@@ -43,7 +43,8 @@ angular
            confirmButton: {title: "Save"},
            cancelButton: true,
            fields: [
-               {name: 'name'}
+               {name: 'name'},
+               {name: 'meal_type'}
            ]
        },
     
@@ -67,31 +68,6 @@ angular
            fields: [
                {name: 'name'}
            ]
-       },
-    
-       all_measure_units: {
-            thing: 'measure_unit',
-            type: 'list',
-            style: 'table',
-            allowDelete: true,
-            fields: [
-                {name:'name'},
-                {name: 'abbreviation'}
-            ]
-        },
-    
-       add_measure_unit: {
-           thing: 'measure_unit',
-           type: 'add',
-           visible: false,
-           toggleButton: {title: "Add Measure Unit", type: "add"},
-           confirmButton: {title: "Save"},
-           cancelButton: true,
-           fields: [
-               {name: 'name'},
-               {name: 'abbreviation'}
-           ]
        }
-    
     
     });

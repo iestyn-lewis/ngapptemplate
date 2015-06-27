@@ -6,8 +6,16 @@ angular
         $scope.view = VIEWS[$scope.id];
         $scope.thingDef = THINGS[$scope.view.thing];
         $scope.thingId = $routeParams.id;
-        $scope.newThing = {};
+        $scope.thing = {};
+        $scope.picklists = {};
         $scope.updateMode = false;
+          
+        // get picklists
+        angular.forEach($scope.thingDef.fields, function(field, key) {
+            if(field.picklist) {
+                $scope.picklists[key] = ThingService.all(field.picklist);
+            }
+        });
         
         if ($scope.view.type == 'list') {
             $scope.things = ThingService.all($scope.view.thing);
@@ -26,8 +34,8 @@ angular
         };
         
         $scope.addThing = function() {
-            ThingService.add($scope.view.thing, $scope.newThing);
-            $scope.newThing = {};
+            ThingService.add($scope.view.thing, $scope.thing);
+            $scope.thing = {};
             $scope.view.visible = false;
         };
         

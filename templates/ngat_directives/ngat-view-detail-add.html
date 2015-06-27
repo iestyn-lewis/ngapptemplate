@@ -6,7 +6,7 @@
     <form ng-submit="addThing()">
         <div class="form-group" ng-repeat="field in view.fields">
             <label>{{objectField(field.name).display}}</label>
-            <input class="form-control" ng-model="newThing[field.name]">
+            <ngat-input></ngat-input>
         </div>
         <button class="btn btn-default" ng-if="view.cancelButton" ng-click="toggleView()">
             <i class="fa fa-times-circle"></i> Cancel
