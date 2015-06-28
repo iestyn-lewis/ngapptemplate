@@ -1,0 +1,20 @@
+<div class="well">
+  <span class="h1"><small><i class="fa fa-search"></i></small></span>
+    <span class="form form-inline">
+    <div class="form-group" ng-repeat="field in view.filters">
+        <label> &nbsp;&nbsp;{{objectField(field).display}}</label>
+
+        <input ng-if="objectField(field).type=='string' || objectField(field).type=='number'" 
+           class="form-control" 
+           ng-model="filters[field]">
+
+        <select ng-if="objectField(field).type == 'picklist'" 
+            class="form-control" 
+            ng-model="filters[field]">
+            <option value="">All</option>
+            <option ng-repeat="option in picklists[field]" value="{{option.name}}">{{option.name}}</option>
+        </select>
+        
+    </div>
+</span>
+</div>

@@ -1,12 +1,9 @@
 <div class="row">
-    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="thing in things">
+    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="thing in things | filter:filters">
         <a ng-href="{{'#/' + view.thing + '/' + thing.$id}}">
             <div class="well">
                 <div ng-repeat="field in view.fields">
-                <span ng-if="objectField(field.name).type != 'image'" ng-class="field.class">
-                            <span class="angular-with-newlines">{{thing[field.name]}}</span>
-                        </span>
-                       <img ng-if="objectField(field.name).type == 'image'" ng-src="{{thing[field.name]}}" height=100>
+                    <ngat-field></ngat-field>
                 </div>
             </a>
         </div>          

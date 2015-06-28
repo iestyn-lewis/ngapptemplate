@@ -3,7 +3,7 @@
 </button>
 
 <div ng-show="view.visible" class="well">
-    <form ng-submit="addThing()">
+    <form>
         <div class="form-group" ng-repeat="field in view.fields">
             <label>{{objectField(field.name).display}}</label>
             <ngat-input></ngat-input>
@@ -11,8 +11,11 @@
         <button class="btn btn-default" ng-if="view.cancelButton" ng-click="toggleView()">
             <i class="fa fa-times-circle"></i> Cancel
         </button>
-        <button type="submit" class="btn btn-success">
+        <button ng-click="addThing(false)" class="btn btn-success">
             <i class="fa fa-check"></i> {{view.confirmButton.title}}
+        </button>
+        <button ng-click="addThing(true)" class="btn btn-success">
+            <i class="fa fa-plus"></i> Save and Add Another
         </button>
     </form>
 </div>

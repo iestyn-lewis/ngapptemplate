@@ -15,4 +15,10 @@ angular
             templateUrl: 'templates/ngat_directives/ngat-input.html'
         };
     })
+    .directive('ngatField', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/ngat_directives/ngat-field.html'
+        };
+    })
 ;

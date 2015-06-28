@@ -6,7 +6,7 @@ angular
             return FirebaseService.asArray("/" + name);
           },
           one: function(name, id) {
-            return FirebaseService.asObject("/" + name + "/" + id)
+            return FirebaseService.asObject("/" + name + "/" + id);
           },
           add: function(name, thing) {
               var things = FirebaseService.asArray("/" + name);

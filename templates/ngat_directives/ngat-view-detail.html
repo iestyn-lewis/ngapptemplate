@@ -1,16 +1,15 @@
 <!-- show form -->
 <div class="well" ng-hide="updateMode">
     <div ng-repeat="field in view.fields">
-        <h4 ng-if="field.caption">{{objectField(field.name).display}}</h4>
-        <span ng-if="objectField(field.name).type != 'image'" ng-class="field.class">
-            <span class="angular-with-newlines">{{thing[field.name]}}</span>
-        </span>
-       <img ng-if="objectField(field.name).type == 'image'" ng-src="{{thing[field.name]}}" height=200>
+        <ngat-field></ngat-field>
     </div>
-     <button ng-click="setUpdateMode(true)" class="btn btn-primary">
+    <div style="margin-top: 10px;">
+            
+     </div>
+     <button ng-click="setUpdateMode(true)" class="btn btn-primary hidden-print">
         <i class="fa fa-pencil"></i> Edit
     </button>
-     <button ng-click="removeThingFromDetail()" class="btn btn-error">
+     <button ng-click="removeThingFromDetail()" class="btn btn-error hidden-print">
         <i class="fa fa-times-circle"></i> Delete
     </button>
 </div>
@@ -18,6 +17,12 @@
 <!-- update form -->
 <div class="well" ng-show="updateMode">
     <form ng-submit="updateThing()">
+        <button class="btn btn-default" ng-if="view.cancelButton" ng-click="setUpdateMode(false)">
+            <i class="fa fa-times-circle"></i> Cancel
+        </button>
+        <button type="submit" class="btn btn-success">
+            <i class="fa fa-check"></i> {{view.confirmButton.title}}
+        </button>
         <div class="form-group" ng-repeat="field in view.fields">
             <label>{{objectField(field.name).display}}</label>
             <ngat-input></ngat-input>

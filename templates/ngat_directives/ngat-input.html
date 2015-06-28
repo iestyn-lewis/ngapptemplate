@@ -2,9 +2,105 @@
        class="form-control" 
        ng-model="thing[field.name]">
 
-<input ng-if="objectField(field.name).type=='image'" 
-       class="form-control" 
-       ng-model="thing[field.name]">
+<div ng-if="objectField(field.name).type=='link'">
+    Title <input class="form-control" 
+           ng-model="thing[field.name].title">  
+    URL <input class="form-control"
+           ng-model="thing[field.name].url">
+    <i>Paste title and URL above or search:</i>
+    <div class="well">
+        <div class="form-inline">
+            <input class="form-control" ng-model="searchTerms[field.name]">
+            <a href class="btn btn-primary" ng-click="getSearchResults(field.name)">
+                <i class="fa fa-search"></i> Search
+            </a>
+            <span ng-show="searchResults[field.name].length > 0">
+                <a href class="btn btn-primary" ng-click="prevSearchResults(field.name)" ng-disabled="searchOffsets[field.name] == 0"><i class="fa fa-chevron-left"></i></a>
+                <a href class="btn btn-primary" ng-click="nextSearchResults(field.name)"><i class="fa fa-chevron-right"></i></a>
+            </span>
+        </div>
+        <div style="margin-top: 10px; margin-bottom: 10px;" ng-show="searchResults[field.name].length > 0">
+            <div ng-repeat="result in searchResults[field.name]">
+                <h3><span ng-bind-html="asHtml(result.title)"></span></h3>
+                <h4><a target="_blank" ng-href="{{result.url}}">{{result.url}}</a></h4>
+                <span ng-bind-html="asHtml(result.content)"></span>
+                <div>
+                    <a href ng-click="useWebSearchResult(field.name, result.title, result.url)">
+                        Use This Result
+                    </a>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div ng-if="objectField(field.name).type=='image'">
+    <img ng-src="{{thing[field.name]}}" height="200" ng-if="thing[field.name]">
+    
+    <input class="form-control" 
+           ng-model="thing[field.name]">  
+    <i>Paste URL above or use Image Search:</i>
+    <div class="well">
+        <div class="form-inline">
+            <input class="form-control" ng-model="searchTerms[field.name]">
+            <a href class="btn btn-primary" ng-click="getSearchResults(field.name)">
+                <i class="fa fa-file-image-o"></i> Image Search
+            </a>
+            <span ng-show="searchResults[field.name].length > 0">
+                <a href class="btn btn-primary" ng-click="prevSearchResults(field.name)" ng-disabled="searchOffsets[field.name] == 0"><i class="fa fa-chevron-left"></i></a>
+                <a href class="btn btn-primary" ng-click="nextSearchResults(field.name)"><i class="fa fa-chevron-right"></i></a>
+            </span>
+        </div>
+        <div style="margin-top: 10px; margin-bottom: 10px;" ng-show="searchResults[field.name].length > 0">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="result in searchResults[field.name]">
+                    <a href ng-click="useSearchResult(field.name, result.url)">
+                        <img ng-src="{{result.url}}" width="200" onerror='this.style.display = "none"'>
+                    </a>
+                </div>
+            </div>
+            Click an image to use it.  
+        </div>
+    </div>
+</div>
+
+<div ng-if="objectField(field.name).type=='video'">
+    <iframe width="320" height="200" 
+            ng-if="thing[field.name]"
+            ng-src="{{youTubeEmbed(thing[field.name])}}" 
+            frameborder="0" allowfullscreen>
+    </iframe>
+    <input class="form-control" 
+           ng-model="thing[field.name]">  
+    <i>Paste YouTube URL above or use Video Search:</i>
+    <div class="well">
+        <div class="form-inline">
+            <input class="form-control" ng-model="searchTerms[field.name]">
+            <a href class="btn btn-primary" ng-click="getSearchResults(field.name)">
+                <i class="fa fa-file-video-o"></i> Video Search
+            </a>
+            <span ng-show="searchResults[field.name].length > 0">
+                <a href class="btn btn-primary" ng-click="prevSearchResults(field.name)" ng-disabled="searchOffsets[field.name] == 0"><i class="fa fa-chevron-left"></i></a>
+                <a href class="btn btn-primary" ng-click="nextSearchResults(field.name)"><i class="fa fa-chevron-right"></i></a>
+            </span>
+        </div>
+        <div style="margin-top: 10px; margin-bottom: 10px;" ng-show="searchResults[field.name].length > 0">
+            <div ng-repeat="result in searchResults[field.name]">
+                <h3><span ng-bind-html="asHtml(result.title)"></span></h3>
+                <iframe width="320" height="200" 
+                        ng-src="{{youTubeEmbed(result.url)}}" 
+                        frameborder="0" allowfullscreen>
+                </iframe>
+                <div>
+                    <a href ng-click="useSearchResult(field.name, result.url)">
+                        Use This Result
+                    </a>                   
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
 
 <select ng-if="objectField(field.name).type == 'picklist'" 
         class="form-control" 

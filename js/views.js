@@ -7,7 +7,8 @@ angular
             type: 'list',
             style: 'card',
             filters: [
-                {display: 'Meal Type', type: 'picklist', parent: 'recipe_type'}
+                'name',
+                'meal_type'
             ],
             fields: [
                 {name:'name', class:"h3"}, 
@@ -23,14 +24,17 @@ angular
             fields: [
                 {name:'name', class: 'h1'}, 
                 {name:'meal_type', class: 'h4'}, 
-                {name:'picture', height:'200'}, 
+                {name:'picture', height:'200', defaultSearchTermField: 'name'}, 
                 {name:'serves', caption: true}, 
                 {name:'ingredients', caption: true},
                 {name:'preparation', caption: true},
-                {name:'notes', caption: true}
+                {name:'notes', caption: true},
+                {name:'link', defaultSearchTermField: 'name', caption: true},
+                {name:'video', defaultSearchTermField: 'name', caption: true}
             ],
             confirmButton: {title: "Save"},
             cancelButton: true,
+            printButton: true,
             allowDelete: true,
             returnFromDeleteTo: 'recipes'
         },

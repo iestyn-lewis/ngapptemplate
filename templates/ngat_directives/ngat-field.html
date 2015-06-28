@@ -1,0 +1,25 @@
+<h4 ng-if="field.caption">{{objectField(field.name).display}}</h4>
+
+<span ng-if="objectField(field.name).type == 'string' 
+             || objectField(field.name).type == 'number' 
+             || objectField(field.name).type == 'note'
+             || objectField(field.name).type == 'picklist'" ng-class="field.class">
+    <span class="angular-with-newlines">{{thing[field.name]}}</span>
+</span>
+
+<img ng-if="objectField(field.name).type == 'image' && thing[field.name]" 
+     ng-src="{{thing[field.name]}}"
+     height="{{defaultImageHeight}}" >
+
+<span class="hidden-print" ng-if="objectField(field.name).type == 'link' && thing[field.name].url">
+    <a target="_blank" ng-href="{{thing[field.name].url}}">
+        <span ng-bind-html="asHtml(thing[field.name].title)"></span> <i class="fa fa-external-link"></i>
+    </a>
+</span>
+
+<span class="hidden-print" ng-if="objectField(field.name).type =='video' && thing[field.name]">
+    <iframe width="{{defaultVideoWidth}}" height="{{defaultVideoHeight}}" 
+            ng-src="{{youTubeEmbed(thing[field.name])}}" 
+            frameborder="0" allowfullscreen>
+    </iframe>
+</span>
