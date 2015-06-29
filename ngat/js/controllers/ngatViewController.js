@@ -36,7 +36,7 @@ angular
             $scope.thing.$loaded().then(function() {
                 angular.forEach($scope.view.fields, function(field) {
                     // fill in default search terms
-                    if(field.defaultSearchTermField) {
+                    if(field.defaultSearchTerm) {
                         $scope.searchTerms[field.name] = $scope.thing[field.defaultSearchTermField];
                     }
                     // create empty object

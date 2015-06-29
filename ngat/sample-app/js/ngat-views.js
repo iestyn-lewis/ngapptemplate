@@ -24,13 +24,13 @@ angular
             fields: [
                 {name:'name', class: 'h1'}, 
                 {name:'meal_type', class: 'h4'}, 
-                {name:'picture', height:'200', defaultSearchTermField: 'name'}, 
+                {name:'picture', height:'200', defaultSearchTerm: ['name']}, 
                 {name:'serves', caption: true}, 
                 {name:'ingredients', caption: true},
                 {name:'preparation', caption: true},
                 {name:'notes', caption: true},
-                {name:'link', defaultSearchTermField: 'name', caption: true},
-                {name:'video', defaultSearchTermField: 'name', caption: true}
+                {name:'link', defaultSearchTerm: ['name'], caption: true},
+                {name:'video', defaultSearchTerm: ['name'], caption: true}
             ],
             confirmButton: {title: "Save"},
             cancelButton: true,

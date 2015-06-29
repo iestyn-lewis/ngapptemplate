@@ -3,7 +3,7 @@ angular
     .directive('ngatView', function() {
         return {
             restrict: 'E',
-            templateUrl: 'templates/ngat_directives/ngat-view.html',
+            templateUrl: 'ngat/html/directives/ngat-view.html',
             scope: {
                 id: '='
             }
@@ -12,13 +12,13 @@ angular
     .directive('ngatInput', function() {
         return {
             restrict: 'E',
-            templateUrl: 'templates/ngat_directives/ngat-input.html'
+            templateUrl: 'ngat/html/directives/ngat-input.html'
         };
     })
     .directive('ngatField', function() {
         return {
             restrict: 'E',
-            templateUrl: 'templates/ngat_directives/ngat-field.html'
+            templateUrl: 'ngat/html/directives/ngat-field.html'
         };
     })
 ;

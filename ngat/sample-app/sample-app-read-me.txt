@@ -1,0 +1,3 @@
+This is a sample recipe site.  Copy the contents of this folder into the root directory of your Codio
+folder.  Now you can edit them and make your own site.  Don't modify the contents of the ngat folder (unless you are
+contributing!)   Now you can safely pull new versions of ngat for your site.  

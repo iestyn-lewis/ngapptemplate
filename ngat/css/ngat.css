@@ -3,3 +3,6 @@
     white-space: pre-wrap;
 }
 
+.constrain100 {
+    max-width: 100%;
+}

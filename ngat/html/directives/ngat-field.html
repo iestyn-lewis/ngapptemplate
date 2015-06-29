@@ -9,7 +9,8 @@
 
 <img ng-if="objectField(field.name).type == 'image' && thing[field.name]" 
      ng-src="{{thing[field.name]}}"
-     height="{{defaultImageHeight}}" >
+     height="{{defaultImageHeight}}" 
+     class="constrain100">
 
 <span class="hidden-print" ng-if="objectField(field.name).type == 'link' && thing[field.name].url">
     <a target="_blank" ng-href="{{thing[field.name].url}}">
@@ -20,6 +21,8 @@
 <span class="hidden-print" ng-if="objectField(field.name).type =='video' && thing[field.name]">
     <iframe width="{{defaultVideoWidth}}" height="{{defaultVideoHeight}}" 
             ng-src="{{youTubeEmbed(thing[field.name])}}" 
-            frameborder="0" allowfullscreen>
+            frameborder="0" 
+            class="constrain100"
+            allowfullscreen>
     </iframe>
 </span>

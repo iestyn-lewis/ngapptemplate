@@ -36,7 +36,10 @@
 
 
 <div ng-if="objectField(field.name).type=='image'">
-    <img ng-src="{{thing[field.name]}}" height="200" ng-if="thing[field.name]">
+    <img ng-src="{{thing[field.name]}}" 
+         height="200" 
+         ng-if="thing[field.name]"
+         class="constrain100">
     
     <input class="form-control" 
            ng-model="thing[field.name]">  
@@ -69,7 +72,9 @@
     <iframe width="320" height="200" 
             ng-if="thing[field.name]"
             ng-src="{{youTubeEmbed(thing[field.name])}}" 
-            frameborder="0" allowfullscreen>
+            frameborder="0" 
+            class="constrain100"
+            allowfullscreen>
     </iframe>
     <input class="form-control" 
            ng-model="thing[field.name]">  
