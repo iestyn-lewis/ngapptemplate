@@ -6,3 +6,7 @@
 .constrain100 {
     max-width: 100%;
 }
+
+.card-view-card {
+    text-align: left;
+}
