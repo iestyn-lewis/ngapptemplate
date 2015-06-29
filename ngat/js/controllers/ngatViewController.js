@@ -28,6 +28,9 @@ angular
         
         if ($scope.view.type == 'list') {
             $scope.things = ThingService.all($scope.view.thing);
+            if ($scope.view.style =='table') {
+                $scope.defaultImageHeight = 50;
+            }
         }
           
         if ($scope.view.type=='detail') {
@@ -72,12 +75,16 @@ angular
         };
         
         $scope.removeThing = function(id) {
-            ThingService.remove($scope.view.thing, id);
+            if (window.confirm("OK to delete this item?")) {
+                ThingService.remove($scope.view.thing, id);
+            }
         };
         
         $scope.removeThingFromDetail = function() {
-            ThingService.remove($scope.view.thing, $scope.thing.$id);
-            $location.path('#/' + $scope.view.returnFromDeleteTo)
+            if (window.confirm("OK to delete this item?")) {
+                ThingService.remove($scope.view.thing, $scope.thing.$id);
+                $location.path('#/' + $scope.view.returnFromDeleteTo);
+            }
         };
           
         $scope.updateThing = function() {

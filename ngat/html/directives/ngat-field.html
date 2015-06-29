@@ -10,10 +10,20 @@
     </span>
 </span>
 
-<img ng-if="objectField(field.name).type == 'image' && thing[field.name]" 
-     ng-src="{{thing[field.name]}}"
-     height="{{defaultImageHeight}}" 
-     class="constrain100">
+<span ng-if="objectField(field.name).type == 'image' && thing[field.name]">
+    <span ng-switch="!(field.detailLink === undefined)">
+        <a ng-href="{{'#/' + view.thing + '/' + thing.$id}}" ng-switch-when="true">
+            <img ng-src="{{thing[field.name]}}"
+                 height="{{defaultImageHeight}}" 
+                 class="constrain100">
+        </a>
+        <span ng-switch-when="false" class="angular-with-newlines">
+            <img ng-src="{{thing[field.name]}}"
+                 height="{{defaultImageHeight}}" 
+                 class="constrain100">
+        </span>
+    </span>
+</span> 
 
 <span class="hidden-print" ng-if="objectField(field.name).type == 'link' && thing[field.name].url">
     <a target="_blank" ng-href="{{thing[field.name].url}}">
