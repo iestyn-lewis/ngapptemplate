@@ -3,7 +3,7 @@
 <span ng-if="objectField(field.name).type == 'string' 
              || objectField(field.name).type == 'number' 
              || objectField(field.name).type == 'note'
-             || objectField(field.name).type == 'picklist'" ng-class="field.class">
+             || objectField(field.name).type == 'picklist'" ng-class="field.class" class="maintain-line-height">
     <span ng-switch="!(field.detailLink === undefined)">
         <a ng-href="{{'#/' + view.thing + '/' + thing.$id}}" ng-switch-when="true"><span class="angular-with-newlines">{{thing[field.name]}}</span></a>
         <span ng-switch-when="false" class="angular-with-newlines">{{thing[field.name]}}</span>
