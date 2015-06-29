@@ -10,7 +10,7 @@
     <tbody>
         <tr ng-repeat="thing in things">
             <td ng-repeat="field in view.fields">
-                {{thing[field.name]}}
+                <ngat-field></ngat-field>
             </td>
             <td ng-if="view.allowDelete">
                 <a href ng-click="removeThing(thing.$id)"><i class="fa fa-times-circle"></i></a>
