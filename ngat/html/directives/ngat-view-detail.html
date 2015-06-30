@@ -1,37 +1,55 @@
 <!-- show form -->
-<div class="well" ng-hide="updateMode">
-    <div ng-repeat="field in view.fields">
-        <ngat-field></ngat-field>
-    </div>
-    <div style="margin-top: 10px;">
-            
+<div ng-hide="updateMode">
+    <div class="ngat-space-bottom">
+         <button ng-click="setUpdateMode(true)" class="btn btn-primary hidden-print">
+            <i class="fa fa-pencil"></i> Edit
+        </button>
      </div>
-     <button ng-click="setUpdateMode(true)" class="btn btn-primary hidden-print">
-        <i class="fa fa-pencil"></i> Edit
-    </button>
-     <button ng-click="removeThingFromDetail()" class="btn btn-error hidden-print">
-        <i class="fa fa-times-circle"></i> Delete
-    </button>
+    
+    <div class="well">
+        <div ng-repeat="field in view.fields">
+            <ngat-field></ngat-field>
+        </div>
+    </div>
+    
+    <div class="ngat-space-bottom">
+         <button ng-click="setUpdateMode(true)" class="btn btn-primary hidden-print">
+            <i class="fa fa-pencil"></i> Edit
+        </button>
+         <button ng-click="removeThingFromDetail()" class="btn btn-default hidden-print float-right">
+            <i class="fa fa-times-circle"></i> Delete
+        </button>
+     </div>
 </div>
 
 <!-- update form -->
-<div class="well" ng-show="updateMode">
-    <form ng-submit="updateThing()">
-        <button class="btn btn-default" ng-if="view.cancelButton" ng-click="setUpdateMode(false)">
-            <i class="fa fa-times-circle"></i> Cancel
-        </button>
-        <button type="submit" class="btn btn-success">
-            <i class="fa fa-check"></i> {{view.confirmButton.title}}
-        </button>
-        <div class="form-group" ng-repeat="field in view.fields">
-            <label>{{objectField(field.name).display}}</label>
-            <ngat-input></ngat-input>
+<div ng-show="updateMode">
+    <form>
+        
+        <div class="ngat-space-bottom">
+            <button class="btn btn-default" ng-if="view.cancelButton" ng-click="setUpdateMode(false)">
+                <i class="fa fa-times-circle"></i> Cancel
+            </button>
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-check"></i> {{view.confirmButton.title}}
+            </button>
         </div>
-        <button class="btn btn-default" ng-if="view.cancelButton" ng-click="setUpdateMode(false)">
-            <i class="fa fa-times-circle"></i> Cancel
-        </button>
-        <button type="submit" class="btn btn-success">
-            <i class="fa fa-check"></i> {{view.confirmButton.title}}
-        </button>
+        
+        <div class="well">
+            <div class="form-group" ng-repeat="field in view.fields">
+                <label>{{objectField(field.name).display}}</label>
+                <ngat-input></ngat-input>
+            </div>            
+        </div>
+
+        <div class="ngat-space-bottom">
+            <button class="btn btn-default" ng-if="view.cancelButton" ng-click="setUpdateMode(false)">
+                <i class="fa fa-times-circle"></i> Cancel
+            </button>
+            <button ng-click="updateThing()" class="btn btn-success">
+                <i class="fa fa-check"></i> {{view.confirmButton.title}}
+            </button>             
+        </div>
+        
     </form>
 </div>

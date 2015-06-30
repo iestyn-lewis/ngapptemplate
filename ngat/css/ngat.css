@@ -14,3 +14,11 @@
 .maintain-line-height {
     line-height: 1.428;
 }
+
+.ngat-space-top {
+    margin-top: 10px;
+}
+
+.ngat-space-bottom {
+    margin-bottom: 20px;
+}

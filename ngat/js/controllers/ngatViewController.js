@@ -1,8 +1,8 @@
 angular
     .module('app')
     .controller('ngatViewController', ['$scope', 'THINGS', 'VIEWS', 'ThingService', 
-                                       'GoogleService', '$routeParams', '$location', '$sce', 
-      function($scope, THINGS, VIEWS, ThingService, GoogleService, $routeParams, $location, $sce) {
+                                       'GoogleService', '$routeParams', '$location', '$sce', '$anchorScroll',
+      function($scope, THINGS, VIEWS, ThingService, GoogleService, $routeParams, $location, $sce, $anchorScroll) {
         $scope.debug = false;
         $scope.googleSearchTypes = {link: 'web', image: 'images', video: 'video'};
         $scope.view = VIEWS[$scope.id];
@@ -40,9 +40,16 @@ angular
                 angular.forEach($scope.view.fields, function(field) {
                     // fill in default search terms
                     if(field.defaultSearchTerm) {
-                        $scope.searchTerms[field.name] = $scope.thing[field.defaultSearchTermField];
+                        var exp = '';
+                        angular.forEach(field.defaultSearchTerm[0], function(term) {
+                            exp += ' ' + $scope.thing[term];
+                        });
+                        if (field.defaultSearchTerm[1]) {
+                            exp += ' ' + field.defaultSearchTerm[1];
+                        }
+                        $scope.searchTerms[field.name] = exp;
                     }
-                    // create empty object
+                    // create empty object for 2 part link fields
                     if($scope.objectField(field.name).type=='link') {
                         $scope.thing[field.name] = $scope.thing[field.name] || {};
                     }
@@ -115,6 +122,12 @@ angular
             $scope.searchOffsets[fieldName] += 4;
             $scope.getSearchResults(fieldName);
         };
+          
+        $scope.clearSearchResults = function(fieldName) {
+            $scope.searchResults[fieldName] = {};
+            $scope.searchOffsets[fieldName] = 0;
+
+        }
           
         $scope.useSearchResult = function(fieldName, resulturl) {
             $scope.thing[fieldName] = resulturl;
