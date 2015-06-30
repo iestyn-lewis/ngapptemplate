@@ -1,6 +1,9 @@
 <!-- show form -->
 <div ng-hide="updateMode">
     <div class="ngat-space-bottom">
+         <a ng-href="{{'#/' + view.thing + 's'}}" class="btn btn-default">
+            <i class="fa fa-caret-left"></i> Back
+         </a>
          <button ng-click="setUpdateMode(true)" class="btn btn-primary hidden-print">
             <i class="fa fa-pencil"></i> Edit
         </button>
@@ -13,6 +16,9 @@
     </div>
     
     <div class="ngat-space-bottom">
+         <a ng-href="{{'#/' + view.thing + 's'}}" class="btn btn-default">
+            <i class="fa fa-caret-left"></i> Back
+         </a>
          <button ng-click="setUpdateMode(true)" class="btn btn-primary hidden-print">
             <i class="fa fa-pencil"></i> Edit
         </button>

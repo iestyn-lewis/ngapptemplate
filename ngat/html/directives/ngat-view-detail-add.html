@@ -1,6 +1,9 @@
-<button ng-if="view.toggleButton" ng-hide="view.visible" ng-click="toggleView()" class="btn btn-primary">
-    <i class="fa fa-plus"></i> {{view.toggleButton.title}}
-</button>
+<div ng-if="view.toggleButton" ng-hide="view.visible" class="ngat-space-bottom">
+    <button  ng-click="toggleView()" class="btn btn-primary">
+        <i class="fa fa-plus"></i> {{view.toggleButton.title}}
+    </button>
+</div>
+
 
 <div ng-show="view.visible" class="well">
     <form>
