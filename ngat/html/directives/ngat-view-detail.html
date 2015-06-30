@@ -36,7 +36,7 @@
             <button class="btn btn-default" ng-if="view.cancelButton" ng-click="setUpdateMode(false)">
                 <i class="fa fa-times-circle"></i> Cancel
             </button>
-            <button type="submit" class="btn btn-success">
+            <button ng-click="updateThing()" class="btn btn-success">
                 <i class="fa fa-check"></i> {{view.confirmButton.title}}
             </button>
         </div>
