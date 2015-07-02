@@ -1,7 +1,7 @@
 <!-- show form -->
 <div ng-hide="updateMode">
     <div class="ngat-space-bottom">
-         <a ng-href="{{'#/' + view.thing + 's'}}" class="btn btn-default">
+         <a ng-href="{{'#/NGAT/' + view.thing + 's'}}" class="btn btn-default">
             <i class="fa fa-caret-left"></i> Back
          </a>
          <button ng-click="setUpdateMode(true)" class="btn btn-primary hidden-print">
@@ -16,7 +16,7 @@
     </div>
     
     <div class="ngat-space-bottom">
-         <a ng-href="{{'#/' + view.thing + 's'}}" class="btn btn-default">
+         <a ng-href="{{'#/NGAT/' + view.thing + 's'}}" class="btn btn-default">
             <i class="fa fa-caret-left"></i> Back
          </a>
          <button ng-click="setUpdateMode(true)" class="btn btn-primary hidden-print">
@@ -33,20 +33,20 @@
     <form>
         
         <div class="ngat-space-bottom" ng-if="!view.updateModeOnly">
-            <button class="btn btn-default" ng-if="view.cancelButton" ng-click="setUpdateMode(false)">
+            <button class="btn btn-default" ng-click="setUpdateMode(false)">
                 <i class="fa fa-times-circle"></i> Cancel
             </button>
             <button ng-click="updateThing()" class="btn btn-success">
-                <i class="fa fa-check"></i> {{view.confirmButton.title}}
+                <i class="fa fa-check"></i> Save
             </button>
         </div>
         
         <div class="ngat-space-bottom" ng-if="view.updateModeOnly">
-             <a ng-href="{{'#/' + view.thing + 's'}}" class="btn btn-default">
+             <a ng-href="{{'#/NGAT/' + view.thing + 's'}}" class="btn btn-default">
                 <i class="fa fa-caret-left"></i> Back
              </a>
             <button ng-click="updateThing()" class="btn btn-success">
-                <i class="fa fa-check"></i> {{view.confirmButton.title}}
+                <i class="fa fa-check"></i> Save
             </button>
         </div>
         
@@ -58,20 +58,20 @@
         </div>
 
         <div class="ngat-space-bottom" ng-if="!view.updateModeOnly">
-            <button class="btn btn-default" ng-if="view.cancelButton" ng-click="setUpdateMode(false)">
+            <button class="btn btn-default" ng-click="setUpdateMode(false)">
                 <i class="fa fa-times-circle"></i> Cancel
             </button>
             <button ng-click="updateThing()" class="btn btn-success">
-                <i class="fa fa-check"></i> {{view.confirmButton.title}}
+                <i class="fa fa-check"></i> Save
             </button>
         </div>
         
         <div class="ngat-space-bottom" ng-if="view.updateModeOnly">
-             <a ng-href="{{'#/' + view.thing + 's'}}" class="btn btn-default">
+             <a ng-href="{{'#/NGAT/' + view.thing + 's'}}" class="btn btn-default">
                 <i class="fa fa-caret-left"></i> Back
              </a>
             <button ng-click="updateThing()" class="btn btn-success">
-                <i class="fa fa-check"></i> {{view.confirmButton.title}}
+                <i class="fa fa-check"></i> Save
             </button>
         </div>
         

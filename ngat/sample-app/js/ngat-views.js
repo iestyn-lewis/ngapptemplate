@@ -11,9 +11,10 @@ angular
                 'meal_type'
             ],
             fields: [
-                {name:'name', class:"h3"}, 
+                {name:'name', class:"h3", detailLink: true}, 
+                {name:'picture', height:"100", detailLink: true},
                 {name:'meal_type'},
-                {name:'picture', height:"100"}
+                {name:'tried', editable: true}
             ],
             allowDelete: true
         },
@@ -24,28 +25,23 @@ angular
             fields: [
                 {name:'name', class: 'h1'}, 
                 {name:'meal_type', class: 'h4'}, 
-                {name:'picture', height:'200', defaultSearchTerm: ['name']}, 
+                {name:'picture', height:'200', defaultSearchTerm: [['name']]}, 
+                {name:'tried'},
                 {name:'serves', caption: true}, 
                 {name:'ingredients', caption: true},
                 {name:'preparation', caption: true},
                 {name:'notes', caption: true},
-                {name:'link', defaultSearchTerm: ['name'], caption: true},
-                {name:'video', defaultSearchTerm: ['name'], caption: true}
+                {name:'link', defaultSearchTerm: [['name'], 'recipe'], caption: true},
+                {name:'video', defaultSearchTerm: [['name']], caption: true}
             ],
-            confirmButton: {title: "Save"},
-            cancelButton: true,
-            printButton: true,
-            allowDelete: true,
-            returnFromDeleteTo: 'recipes'
+            updateModeOnly: false,
+            printButton: true
         },
     
        add_recipe: {
            thing: 'recipe',
            type: 'add',
            visible: false,
-           toggleButton: {title: "Add Recipe", type: "add"},
-           confirmButton: {title: "Save"},
-           cancelButton: true,
            fields: [
                {name: 'name'},
                {name: 'meal_type'}
@@ -58,7 +54,8 @@ angular
             style: 'table',
             allowDelete: true,
             fields: [
-                {name:'name'}
+                {name:'name', detailLink: true},
+                {name: 'default'}
             ]
         },
     
@@ -66,12 +63,21 @@ angular
            thing: 'recipe_type',
            type: 'add',
            visible: false,
-           toggleButton: {title: "Add Recipe Type", type: "add"},
-           confirmButton: {title: "Save"},
-           cancelButton: true,
            fields: [
-               {name: 'name'}
-           ]
-       }
+               {name: 'name'},
+               {name: 'default'}
+           ],
+           updateModeOnly: true
+       },
+    
+      recipe_type_detail: {
+          thing: 'recipe_type',
+          type: 'detail',
+          fields: [
+              {name: 'name'},
+              {name: 'default'}              
+          ],
+          updateModeOnly: true
+      }
     
     });

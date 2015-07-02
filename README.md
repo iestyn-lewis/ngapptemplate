@@ -28,7 +28,7 @@ In the Terminal window, you'll see your Codio box domain.  Go to another tab and
 
 ## NGAT Concepts
 
-NGAT is built around the concepts of Things, Fields and Views.  
+NGAT is built around the concepts of Things, Fields, Views, Pages, and Navigation.  
 
 * Things are what you want to manage.  Things could be:
     * Songs
@@ -46,9 +46,18 @@ NGAT is built around the concepts of Things, Fields and Views.
     * A list of stuffed animals
     * Detailed information about a single stuffed animal
     
+* Pages are a collection of one or more views that make up a page on your website
+
+* Navigation is the interface that is presented to the user in the navigation bar
+    
 ### Configuring Things
 
-Things are configured in the file js\ngat-things.js.   You can add the things you want to manage, and configure their fields.
+Things are configured in the file js\ngat-things.js.   
+You can add the things you want to manage, and configure their fields.
+
+#### Options
+
+* display - the name of the thing to show to the user
 
 #### Fields
 
@@ -85,5 +94,24 @@ Each view has:
     * name - the name of the field
     * class - the css style you want to apply to the field
 * Options
-    * updateModeOnly - if true, the form will only have an update mode, no display mode.  Useful for things you expect only to edit.
+    * updateModeOnly - if true, the form will only have an update mode, no display mode.  
+    Useful for things you expect only to edit.
+    * allowDelete - if true, you will be able to delete items (after confirmation) from this view
+    * printButton - if true, a print button will appear for this view
 
+### Configuring Pages
+
+Pages are configured in the file js\ngat-pages.js
+
+Each page has:
+* title - the header text that will appear at the top of the page
+* views - the views that will be presented on the page, in the order they are to be presented
+
+### Configuring Navigation
+
+Navigation is configured in the file js\ngat-navigation.js.
+
+Each object in the navigation array represents a menu item.  Each menu item has:
+* page - the page that is to be displayed, if any, when the menu item is clicked
+* caption - the caption for the menu
+* subMenu - an optional array, containing objects with pages and captions, that should appear as a submenu of this menu item.

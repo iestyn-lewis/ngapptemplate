@@ -1,0 +1,7 @@
+<div ng-controller="ngatNavigationController">
+  <ul class="nav navbar-nav">
+      <li ng-repeat="menuItem in menuItems">
+          <a ng-href="{{'#/NGAT/' + menuItem.page}}">{{menuItem.caption}}</a>
+      </li>
+   </ul>  
+</div>

@@ -3,7 +3,8 @@
 <div ng-if="objectField(field.name).type == 'checkbox'">
     <input type="checkbox" 
            disabled 
-           ng-model="thing[field.name]"> {{objectField(field.name).display}}
+           ng-model="thing[field.name]"> 
+    <span ng-if="view.style != 'table'"> {{objectField(field.name).display}}</span>
 </div>
 
 <span ng-if="objectField(field.name).type == 'string' 
@@ -11,14 +12,14 @@
              || objectField(field.name).type == 'note'
              || objectField(field.name).type == 'picklist'" ng-class="field.class" class="maintain-line-height">
     <span ng-switch="!(field.detailLink === undefined)">
-        <a ng-href="{{'#/' + view.thing + '/' + thing.$id}}" ng-switch-when="true"><span class="angular-with-newlines">{{thing[field.name]}}</span></a>
+        <a ng-href="{{'#/NGAT/' + view.thing + '/' + thing.$id}}" ng-switch-when="true"><span class="angular-with-newlines">{{thing[field.name]}}</span></a>
         <span ng-switch-when="false" class="angular-with-newlines">{{thing[field.name]}}</span>
     </span>
 </span>
 
 <span ng-if="objectField(field.name).type == 'image' && thing[field.name]">
     <span ng-switch="!(field.detailLink === undefined)">
-        <a ng-href="{{'#/' + view.thing + '/' + thing.$id}}" ng-switch-when="true">
+        <a ng-href="{{'#/NGAT/' + view.thing + '/' + thing.$id}}" ng-switch-when="true">
             <img ng-src="{{thing[field.name]}}"
                  height="{{defaultImageHeight}}" 
                  class="constrain100">

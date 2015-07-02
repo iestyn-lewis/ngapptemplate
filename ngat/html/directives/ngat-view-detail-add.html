@@ -1,9 +1,8 @@
-<div ng-if="view.toggleButton" ng-hide="view.visible" class="ngat-space-bottom">
+<div ng-hide="view.visible" class="ngat-space-bottom">
     <button  ng-click="toggleView()" class="btn btn-primary">
-        <i class="fa fa-plus"></i> {{view.toggleButton.title}}
+        <i class="fa fa-plus"></i> {{"Add " + thingDef.display}}
     </button>
 </div>
-
 
 <div ng-show="view.visible" class="well">
     <form>
@@ -11,11 +10,12 @@
             <label>{{objectField(field.name).display}}</label>
             <ngat-input></ngat-input>
         </div>
-        <button class="btn btn-default" ng-if="view.cancelButton" ng-click="toggleView()">
+        
+        <button class="btn btn-default" ng-click="toggleView()">
             <i class="fa fa-times-circle"></i> Cancel
         </button>
         <button ng-click="addThing(false)" class="btn btn-success">
-            <i class="fa fa-check"></i> {{view.confirmButton.title}}
+            <i class="fa fa-check"></i> Save
         </button>
         <button ng-click="addThing(true)" class="btn btn-success">
             <i class="fa fa-plus"></i> Save and Add Another
