@@ -1,3 +1,8 @@
+<div  ng-if="objectField(field.name).type=='checkbox'">
+    <input type="checkbox" 
+       ng-model="thing[field.name]">
+</div>
+                                          
 <input ng-if="objectField(field.name).type=='string' || objectField(field.name).type=='number'" 
        class="form-control" 
        ng-model="thing[field.name]">

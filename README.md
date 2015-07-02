@@ -84,4 +84,6 @@ Each view has:
 * Fields - the fields you want to show.  These must all be present on the 'thing' you are viewing.
     * name - the name of the field
     * class - the css style you want to apply to the field
+* Options
+    * updateModeOnly - if true, the form will only have an update mode, no display mode.  Useful for things you expect only to edit.
 

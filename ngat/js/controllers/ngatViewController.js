@@ -17,7 +17,8 @@ angular
         $scope.defaultImageHeight = 100;
         $scope.defaultVideoHeight = 320;
         $scope.defaultVideoWidth = 480;
-        $scope.updateMode = false;
+        $scope.updateMode = $scope.view.updateModeOnly || false;
+        $scope.dataChanged = false;
           
         // get picklists
         angular.forEach($scope.thingDef.fields, function(field, key) {
@@ -56,7 +57,7 @@ angular
                 });
             });
         }
-        
+                  
         $scope.asHtml = function(val) {
             return $sce.trustAsHtml(val);
         };
@@ -96,7 +97,8 @@ angular
           
         $scope.updateThing = function() {
             ThingService.update($scope.thing);
-            $scope.updateMode = false;
+            $scope.dataChanged = false;
+            $scope.updateMode = $scope.view.updateModeOnly || false;
         };
           
         $scope.setUpdateMode = function(val) {

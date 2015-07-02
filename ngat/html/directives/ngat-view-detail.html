@@ -32,10 +32,19 @@
 <div ng-show="updateMode">
     <form>
         
-        <div class="ngat-space-bottom">
+        <div class="ngat-space-bottom" ng-if="!view.updateModeOnly">
             <button class="btn btn-default" ng-if="view.cancelButton" ng-click="setUpdateMode(false)">
                 <i class="fa fa-times-circle"></i> Cancel
             </button>
+            <button ng-click="updateThing()" class="btn btn-success">
+                <i class="fa fa-check"></i> {{view.confirmButton.title}}
+            </button>
+        </div>
+        
+        <div class="ngat-space-bottom" ng-if="view.updateModeOnly">
+             <a ng-href="{{'#/' + view.thing + 's'}}" class="btn btn-default">
+                <i class="fa fa-caret-left"></i> Back
+             </a>
             <button ng-click="updateThing()" class="btn btn-success">
                 <i class="fa fa-check"></i> {{view.confirmButton.title}}
             </button>
@@ -48,13 +57,22 @@
             </div>            
         </div>
 
-        <div class="ngat-space-bottom">
+        <div class="ngat-space-bottom" ng-if="!view.updateModeOnly">
             <button class="btn btn-default" ng-if="view.cancelButton" ng-click="setUpdateMode(false)">
                 <i class="fa fa-times-circle"></i> Cancel
             </button>
             <button ng-click="updateThing()" class="btn btn-success">
                 <i class="fa fa-check"></i> {{view.confirmButton.title}}
-            </button>             
+            </button>
+        </div>
+        
+        <div class="ngat-space-bottom" ng-if="view.updateModeOnly">
+             <a ng-href="{{'#/' + view.thing + 's'}}" class="btn btn-default">
+                <i class="fa fa-caret-left"></i> Back
+             </a>
+            <button ng-click="updateThing()" class="btn btn-success">
+                <i class="fa fa-check"></i> {{view.confirmButton.title}}
+            </button>
         </div>
         
     </form>
