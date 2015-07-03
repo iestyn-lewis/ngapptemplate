@@ -98,13 +98,14 @@ Each view has:
     Useful for things you expect only to edit.
     * allowDelete - if true, you will be able to delete items (after confirmation) from this view
     * printButton - if true, a print button will appear for this view
+    * title - the text that will appear at the top of the view, if any
 
 ### Configuring Pages
 
 Pages are configured in the file js\ngat-pages.js
 
 Each page has:
-* title - the header text that will appear at the top of the page
+* title - the header text that will appear at the top of the page, if any
 * views - the views that will be presented on the page, in the order they are to be presented
 
 ### Configuring Navigation

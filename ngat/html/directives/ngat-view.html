@@ -1,15 +1,5 @@
 <div ng-controller="ngatViewController">
-    
-    <div ng-if="debug">
-        Id: {{id}}
-        <br>
-        View: {{view}}
-        <br>
-        ThingDef: {{thingDef}}
-        <br>
-        Thing: {{thing}}
-    </div>
-    
+    <h2 ng-if="view.title">{{view.title}}</h2>
     <div ng-if="view.filters" ng-include="'ngat/html/directives/ngat-view-filters.html'"></div>
     <div ng-if="view.style=='card'" ng-include="'ngat/html/directives/ngat-view-card.html'"></div>
     <div ng-if="view.style=='table'" ng-include="'ngat/html/directives/ngat-view-table.html'"></div>
