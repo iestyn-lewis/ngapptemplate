@@ -20,7 +20,8 @@ angular
             restrict: 'E',
             templateUrl: 'ngat/html/directives/ngat-view.html',
             scope: {
-                id: '='
+                id: '=',
+                page: '='
             }
         };
     })

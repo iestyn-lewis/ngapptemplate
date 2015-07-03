@@ -107,6 +107,7 @@ Pages are configured in the file js\ngat-pages.js
 Each page has:
 * title - the header text that will appear at the top of the page, if any
 * views - the views that will be presented on the page, in the order they are to be presented
+* default- if true, this is the default page that will be displayed for your application
 
 ### Configuring Navigation
 

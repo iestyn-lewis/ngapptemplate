@@ -91,14 +91,17 @@ angular
         $scope.removeThingFromDetail = function() {
             if (window.confirm("OK to delete this item?")) {
                 ThingService.remove($scope.view.thing, $scope.thing.$id);
-                $location.path('#/' + $scope.view.returnFromDeleteTo);
+                $location.path('/NGAT/' + $scope.page.backTo);
             }
         };
           
-        $scope.updateThing = function() {
+        $scope.updateThing = function(returnToParent) {
             ThingService.update($scope.thing);
             $scope.dataChanged = false;
             $scope.updateMode = $scope.view.updateModeOnly || false;
+            if (returnToParent) {
+                $location.path('/NGAT/' + $scope.page.backTo)
+            }
         };
           
         $scope.setUpdateMode = function(val) {

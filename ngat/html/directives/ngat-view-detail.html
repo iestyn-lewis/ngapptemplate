@@ -1,7 +1,7 @@
 <!-- show form -->
 <div ng-hide="updateMode">
     <div class="ngat-space-bottom">
-         <a ng-href="{{'#/NGAT/' + view.thing + 's'}}" class="btn btn-default">
+         <a ng-href="{{'#/NGAT/' + page.backTo}}" class="btn btn-default">
             <i class="fa fa-caret-left"></i> Back
          </a>
          <button ng-click="setUpdateMode(true)" class="btn btn-primary hidden-print">
@@ -16,7 +16,7 @@
     </div>
     
     <div class="ngat-space-bottom">
-         <a ng-href="{{'#/NGAT/' + view.thing + 's'}}" class="btn btn-default">
+         <a ng-href="{{'#/NGAT/' + page.backTo}}" class="btn btn-default">
             <i class="fa fa-caret-left"></i> Back
          </a>
          <button ng-click="setUpdateMode(true)" class="btn btn-primary hidden-print">
@@ -42,10 +42,10 @@
         </div>
         
         <div class="ngat-space-bottom" ng-if="view.updateModeOnly">
-             <a ng-href="{{'#/NGAT/' + view.thing + 's'}}" class="btn btn-default">
-                <i class="fa fa-caret-left"></i> Back
+             <a ng-href="{{'#/NGAT/' + page.backTo}}" class="btn btn-default">
+                <i class="fa fa-times-circle"></i> Cancel
              </a>
-            <button ng-click="updateThing()" class="btn btn-success">
+            <button ng-click="updateThing(true)" class="btn btn-success">
                 <i class="fa fa-check"></i> Save
             </button>
         </div>
@@ -67,10 +67,10 @@
         </div>
         
         <div class="ngat-space-bottom" ng-if="view.updateModeOnly">
-             <a ng-href="{{'#/NGAT/' + view.thing + 's'}}" class="btn btn-default">
-                <i class="fa fa-caret-left"></i> Back
+             <a ng-href="{{'#/NGAT/' + page.backTo}}" class="btn btn-default">
+                <i class="fa fa-times-circle"></i> Cancel
              </a>
-            <button ng-click="updateThing()" class="btn btn-success">
+            <button ng-click="updateThing(true)" class="btn btn-success">
                 <i class="fa fa-check"></i> Save
             </button>
         </div>
