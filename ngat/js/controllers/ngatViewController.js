@@ -96,7 +96,7 @@ angular
         };
           
         $scope.updateThing = function(returnToParent) {
-            ThingService.update($scope.thing);
+            ThingService.update($scope.view.thing, $scope.thing);
             $scope.dataChanged = false;
             $scope.updateMode = $scope.view.updateModeOnly || false;
             if (returnToParent) {
