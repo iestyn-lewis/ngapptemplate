@@ -46,8 +46,6 @@ NGAT is built around the concepts of Things, Fields, Views, Pages, and Navigatio
     * A list of stuffed animals
     * Detailed information about a single stuffed animal
     
-* Pages are a collection of one or more views that make up a page on your website
-
 * Navigation is the interface that is presented to the user in the navigation bar
     
 ### Configuring Things
@@ -100,20 +98,10 @@ Each view has:
     * printButton - if true, a print button will appear for this view
     * title - the text that will appear at the top of the view, if any
 
-### Configuring Pages
-
-Pages are configured in the file js\ngat-pages.js
-
-Each page has:
-* title - the header text that will appear at the top of the page, if any
-* views - the views that will be presented on the page, in the order they are to be presented
-* default- if true, this is the default page that will be displayed for your application
-
 ### Configuring Navigation
 
 Navigation is configured in the file js\ngat-navigation.js.
 
 Each object in the navigation array represents a menu item.  Each menu item has:
-* page - the page that is to be displayed, if any, when the menu item is clicked
+* view - the view that is to be displayed, if any, when the menu item is clicked
 * caption - the caption for the menu
-* subMenu - an optional array, containing objects with pages and captions, that should appear as a submenu of this menu item.

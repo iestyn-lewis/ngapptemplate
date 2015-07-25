@@ -1,11 +1,11 @@
 <div ng-hide="addview.visible" class="ngat-space-bottom">
-    <button  ng-click="toggleAddView()" class="btn btn-primary">
+    <button  ng-click="showAddForm()" class="btn btn-primary">
         <i class="fa fa-plus"></i> {{"Add " + thingDef.display}}
     </button>
 </div>
 
 <div ng-show="addview.visible" class="well">
-    <form>
+    <form id="addForm">
         <div class="form-group" ng-repeat="field in addview.fields">
             <label>{{objectField(field.name).display}}</label>
             <ngat-input></ngat-input>
@@ -20,4 +20,6 @@
             <i class="fa fa-plus"></i> Save and Add Another
         </button>
     </form>
+    <div id="addFormEnd">
+    </div>
 </div>

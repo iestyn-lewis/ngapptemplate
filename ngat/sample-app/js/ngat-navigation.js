@@ -3,13 +3,23 @@ angular
     .value('NAVIGATION', [
 
         {
-            page: 'recipes',
+            view: 'cookbook',
+            caption: 'Cookbooks'
+        },
+    
+        {
+            view: 'recipe',
             caption: 'Recipes'
         },
-           
+          
         {
-            page: 'recipe_types',
-            caption: 'Settings'
+            view: 'person',
+            caption: 'Contributors'
+        },
+    
+        {
+            view: 'recipe_type',
+            caption: 'Recipe Types'
         }
    
     ]);

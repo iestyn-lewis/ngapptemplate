@@ -16,6 +16,8 @@ angular
                 name: {type: 'string', display: 'Name'},
                 picture: {type: 'image', display: 'Picture'},
                 link: {type: 'link', display: 'Reference'},
+                person: {type: 'picklist', display: 'Author', picklist: 'person'},
+                cookbook: {type: 'picklist', display: 'Cookbook', picklist: 'cookbook'},
                 meal_type: {type: 'picklist', display: 'Meal Type', picklist: 'recipe_type'},
                 serves: {type: 'number', display: 'Serves'},
                 ingredients: {type: 'note', display: 'Ingredients'},
@@ -23,6 +25,24 @@ angular
                 notes: {type: 'note', display: 'Notes'},
                 video: {type: 'video', display: 'Video'},
                 tried: {type: 'checkbox', display: 'Tried It'}
+            }
+        },
+    
+        cookbook: {
+            display: 'Cookbook',
+            fields: {
+                name: {type: 'string', display: 'Name'},
+                picture: {type: 'image', display: 'Picture'},
+                description: {type: 'note', display: 'Description'}
+            }
+        },
+    
+        person: {
+            display: 'Person',
+            fields: {
+                name: {type: 'string', display: 'Name'},
+                picture: {type: 'image', display: 'Picture'},
+                description: {type: 'note', display: 'Description'}
             }
         }
     

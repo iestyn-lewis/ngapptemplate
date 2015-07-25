@@ -124,6 +124,13 @@ angular
            return $scope.thingDef.fields[name];  
         };
           
+        $scope.showAddForm = function() {
+            $scope.toggleAddView();
+            $location.hash('addFormEnd');
+            $anchorScroll();
+            //angular.element('#addForm:input:first').focus()
+        }
+          
         $scope.toggleAddView = function() {
             $scope.addview.visible = !$scope.addview.visible;
         };
