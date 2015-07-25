@@ -2,17 +2,17 @@ angular
     .module("app")
     .config(function ($routeProvider, $locationProvider) {
     $routeProvider
-        .when('/NGAT/:page/:id', {
-            templateUrl: 'ngat/html/directives/ngat-page.html'
+        .when('/NGAT/:view/:id', {
+            templateUrl: 'ngat/html/directives/ngat-view.html'
         })
-        .when('/NGAT/:page', {
-            templateUrl: 'ngat/html/directives/ngat-page.html'
+        .when('/NGAT/:view', {
+            templateUrl: 'ngat/html/directives/ngat-view.html'
         })
-        .when('/NGAT/:page/filter/:filter/:filterid', {
-            templateUrl: 'ngat/html/directives/ngat-page.html'
+        .when('/NGAT/:view/filter/:filter/:filterid', {
+            templateUrl: 'ngat/html/directives/ngat-view.html'
         })
         .when('/NGAT', {
-            templateUrl: 'ngat/html/directives/ngat-page.html'
+            templateUrl: 'ngat/html/directives/ngat-view.html'
         })
         ;
    });

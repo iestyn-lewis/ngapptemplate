@@ -1,9 +1,9 @@
 <!-- show form -->
 <div ng-hide="updateMode">
     <div class="ngat-space-bottom">
-         <a ng-href="{{'#/NGAT/' + page.backTo}}" class="btn btn-default">
+         <!-- <a ng-href="{{'#/NGAT/' + view.thing}}" class="btn btn-default">
             <i class="fa fa-caret-left"></i> Back
-         </a>
+         </a> -->
          <button ng-click="setUpdateMode(true)" class="btn btn-primary hidden-print">
             <i class="fa fa-pencil"></i> Edit
         </button>
@@ -16,9 +16,9 @@
     </div>
     
     <div class="ngat-space-bottom">
-         <a ng-href="{{'#/NGAT/' + page.backTo}}" class="btn btn-default">
+         <!-- <a ng-href="{{'#/NGAT/' + page.backTo}}" class="btn btn-default">
             <i class="fa fa-caret-left"></i> Back
-         </a>
+         </a> -->
          <button ng-click="setUpdateMode(true)" class="btn btn-primary hidden-print">
             <i class="fa fa-pencil"></i> Edit
         </button>
@@ -42,7 +42,7 @@
         </div>
         
         <div class="ngat-space-bottom" ng-if="view.updateModeOnly">
-             <a ng-href="{{'#/NGAT/' + page.backTo}}" class="btn btn-default">
+             <a ng-href="{{'#/NGAT/' + view.thing}}" class="btn btn-default">
                 <i class="fa fa-times-circle"></i> Cancel
              </a>
             <button ng-click="updateThing(true)" class="btn btn-success">
@@ -67,7 +67,7 @@
         </div>
         
         <div class="ngat-space-bottom" ng-if="view.updateModeOnly">
-             <a ng-href="{{'#/NGAT/' + page.backTo}}" class="btn btn-default">
+             <a ng-href="{{'#/NGAT/' + view.thing}}" class="btn btn-default">
                 <i class="fa fa-times-circle"></i> Cancel
              </a>
             <button ng-click="updateThing(true)" class="btn btn-success">

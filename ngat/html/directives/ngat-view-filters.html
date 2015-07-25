@@ -11,6 +11,7 @@
         <select ng-if="objectField(field).type == 'picklist'" 
             class="form-control" 
             ng-model="filters[field]"
+            ng-change="syncThingToFilters()"
             ng-options="option.$id as option.name for option in picklists[field]">
             <option value="">All</option>
         </select>

@@ -3,13 +3,11 @@ angular
     .controller('ngatViewController', ['$scope', 'THINGS', 'VIEWS', 'ThingService', 
                                        'GoogleService', '$routeParams', '$location', '$sce', '$anchorScroll',
       function($scope, THINGS, VIEWS, ThingService, GoogleService, $routeParams, $location, $sce, $anchorScroll) {
+          
+        $scope.view = {};
+        $scope.addview = {};
         $scope.debug = false;
         $scope.googleSearchTypes = {link: 'web', image: 'images', video: 'video'};
-        $scope.view = VIEWS[$scope.id];
-        $scope.thingDef = THINGS[$scope.view.thing];
-        $scope.thingId = $routeParams.id;
-        $scope.filterField = $routeParams.filter;
-        $scope.filterId = $routeParams.filterid;
         $scope.thing = {};
         $scope.picklists = {};
         $scope.searchTerms = {};
@@ -19,8 +17,31 @@ angular
         $scope.defaultImageHeight = 100;
         $scope.defaultVideoHeight = 320;
         $scope.defaultVideoWidth = 480;
-        $scope.updateMode = $scope.view.updateModeOnly || false;
         $scope.dataChanged = false;
+          
+        if (!$routeParams.view) {
+            angular.forEach(VIEWS, function(view, key) {
+                if (view.default) {
+                    $routeParams.view = key;
+                }
+            });  
+        }
+        $scope.viewType = 'list';
+        if ($routeParams.id) {
+            $scope.viewType = 'detail';
+        }
+
+        $scope.thingName = $routeParams.view;
+        $scope.view = VIEWS[$routeParams.view][$scope.viewType];
+        $scope.view.thing = $scope.thingName;
+        $scope.view.type = $scope.viewType;
+        $scope.view.style = $scope.view.style || 'card';
+        $scope.updateMode = $scope.view.updateModeOnly || false;
+        $scope.addview = VIEWS[$routeParams.view]['add'];
+        $scope.thingDef = THINGS[$scope.thingName];
+        $scope.thingId = $routeParams.id;
+        $scope.filterField = $routeParams.filter;
+        $scope.filterId = $routeParams.filterid;
           
         // get picklists
         angular.forEach($scope.thingDef.fields, function(field, key) {
@@ -31,6 +52,7 @@ angular
           
         if ($scope.filterField) {
             $scope.filters[$scope.filterField] = $scope.filterId;
+            $scope.thing[$scope.filterField] = $scope.filterId;
         }
           
         if ($scope.view.type == 'list') {
@@ -74,6 +96,12 @@ angular
             }
        };
           
+       $scope.syncThingToFilters = function() {
+            angular.forEach($scope.filters, function(value, key) {
+                $scope.thing[key] = value;  
+            });
+       };
+          
         $scope.allowNullValue = function (expected, actual) {
             if (actual === null) {
                 return true;
@@ -96,15 +124,15 @@ angular
            return $scope.thingDef.fields[name];  
         };
           
-        $scope.toggleView = function() {
-            $scope.view.visible = !$scope.view.visible;
+        $scope.toggleAddView = function() {
+            $scope.addview.visible = !$scope.addview.visible;
         };
         
         $scope.addThing = function(keepOpen) {
             ThingService.add($scope.view.thing, $scope.thing);
             $scope.thing = {};
             if (!keepOpen) {
-                $scope.view.visible = false;
+                $scope.addview.visible = false;
             }
         };
         
@@ -117,7 +145,7 @@ angular
         $scope.removeThingFromDetail = function() {
             if (window.confirm("OK to delete this item?")) {
                 ThingService.remove($scope.view.thing, $scope.thing.$id);
-                $location.path('/NGAT/' + $scope.page.backTo);
+                $location.path('/NGAT/' + $scope.view.thing);
             }
         };
           
@@ -126,7 +154,7 @@ angular
             $scope.dataChanged = false;
             $scope.updateMode = $scope.view.updateModeOnly || false;
             if (returnToParent) {
-                $location.path('/NGAT/' + $scope.page.backTo)
+                $location.path('/NGAT/' + $scope.view.thing)
             }
         };
           
