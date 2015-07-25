@@ -1,4 +1,11 @@
-<h4 ng-if="field.caption">{{objectField(field.name).display}}</h4>
+<div ng-if="field.pageLink">
+    <span ng-class="field.class">
+        <a ng-href="{{'#/NGAT/' + field.pageLink + '/filter/' + field.filter + '/' + thing.$id}}">{{field.display}}</a>
+    </span>
+</div>
+
+<div ng-if="field.name">
+  <h4 ng-if="field.caption">{{objectField(field.name).display}}</h4>
 
 <div ng-if="objectField(field.name).type == 'checkbox'">
     <input type="checkbox" 
@@ -9,13 +16,18 @@
 
 <span ng-if="objectField(field.name).type == 'string' 
              || objectField(field.name).type == 'number' 
-             || objectField(field.name).type == 'note'
-             || objectField(field.name).type == 'picklist'"
+             || objectField(field.name).type == 'note'"
       ng-class="field.class" class="maintain-line-height">
     <span ng-switch="!(field.detailLink === undefined)">
         <a ng-href="{{'#/NGAT/' + view.thing + '/' + thing.$id}}" ng-switch-when="true"><span class="angular-with-newlines">{{thing[field.name]}}</span></a>
         <span ng-switch-when="false" class="angular-with-newlines">{{thing[field.name]}}</span>
     </span>
+</span>
+
+<span ng-if="objectField(field.name).type == 'picklist'">
+    <a ng-href="{{'#/NGAT/' + field.name + '/' + thing[field.name]}}">
+        <span class="angular-with-newlines" ng-bind="picklistItemName(field.name, thing[field.name])"></span>
+    </a>
 </span>
 
 <span ng-if="objectField(field.name).type == 'image' && thing[field.name]">
@@ -46,5 +58,7 @@
             class="constrain100"
             allowfullscreen>
     </iframe>
-</span>
+</span>  
+</div>
+
 

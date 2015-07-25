@@ -8,6 +8,8 @@ angular
         $scope.view = VIEWS[$scope.id];
         $scope.thingDef = THINGS[$scope.view.thing];
         $scope.thingId = $routeParams.id;
+        $scope.filterField = $routeParams.filter;
+        $scope.filterId = $routeParams.filterid;
         $scope.thing = {};
         $scope.picklists = {};
         $scope.searchTerms = {};
@@ -26,7 +28,11 @@ angular
                 $scope.picklists[key] = ThingService.all(field.picklist);
             }
         });
-        
+          
+        if ($scope.filterField) {
+            $scope.filters[$scope.filterField] = $scope.filterId;
+        }
+          
         if ($scope.view.type == 'list') {
             $scope.things = ThingService.all($scope.view.thing);
             if ($scope.view.style =='table') {
@@ -57,7 +63,27 @@ angular
                 });
             });
         }
-                  
+                    
+       $scope.picklistItemName = function(no, id) {
+            var plist = $scope.picklists[no];
+            for(var i=0; i<plist.length; i++) {
+                var item = plist[i];
+                if (item.$id == id) {
+                    return item.name;
+                }
+            }
+       };
+          
+        $scope.allowNullValue = function (expected, actual) {
+            if (actual === null) {
+                return true;
+            } else {
+                // angular's default (non-strict) internal comparator
+                var text = ('' + actual).toLowerCase();
+                return ('' + expected).toLowerCase().indexOf(text) > -1;
+            }
+        };
+                            
         $scope.asHtml = function(val) {
             return $sce.trustAsHtml(val);
         };
@@ -69,7 +95,7 @@ angular
         $scope.objectField = function(name) {
            return $scope.thingDef.fields[name];  
         };
-       
+          
         $scope.toggleView = function() {
             $scope.view.visible = !$scope.view.visible;
         };
@@ -96,7 +122,7 @@ angular
         };
           
         $scope.updateThing = function(returnToParent) {
-            ThingService.update($scope.view.thing, $scope.thing);
+            ThingService.update($scope.thing);
             $scope.dataChanged = false;
             $scope.updateMode = $scope.view.updateModeOnly || false;
             if (returnToParent) {

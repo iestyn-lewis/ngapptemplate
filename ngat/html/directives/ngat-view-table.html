@@ -8,7 +8,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="thing in things | filter:filters">
+        <tr ng-repeat="thing in things | filter:filters:allowNullValue">
             <td ng-repeat="field in view.fields">
                 <ngat-field></ngat-field>
             </td>

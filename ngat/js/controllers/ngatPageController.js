@@ -10,4 +10,5 @@ angular
               });  
           }
           $scope.page = PAGES[$routeParams.page];
+          $scope.thing = {};
       }]);

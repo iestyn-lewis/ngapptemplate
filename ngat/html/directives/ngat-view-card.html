@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="thing in things | filter:filters">
+    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="thing in things | filter:filters:allowNullValue">
         <div class="well card-view-card">
             <div ng-repeat="field in view.fields">
                 <ngat-field></ngat-field>

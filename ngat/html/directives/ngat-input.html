@@ -159,7 +159,7 @@
 <select ng-if="objectField(field.name).type == 'picklist'" 
         class="form-control" 
         ng-model="thing[field.name]"
-        ng-options="option.name as option.name for option in picklists[field.name]">
+        ng-options="option.$id as option.name for option in picklists[field.name]">
 </select>
 
 <textarea ng-if="objectField(field.name).type== 'note'"

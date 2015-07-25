@@ -10,9 +10,9 @@
 
         <select ng-if="objectField(field).type == 'picklist'" 
             class="form-control" 
-            ng-model="filters[field]">
+            ng-model="filters[field]"
+            ng-options="option.$id as option.name for option in picklists[field]">
             <option value="">All</option>
-            <option ng-repeat="option in picklists[field]" value="{{option.name}}">{{option.name}}</option>
         </select>
         
     </div>
